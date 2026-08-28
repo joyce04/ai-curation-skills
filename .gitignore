@@ -1,0 +1,11 @@
+# Personal run state -- ids of items already shown. Machine-local, and merging
+# two people's histories is meaningless.
+state/seen.json
+
+# Generated digests. Output, not source.
+digests/
+
+# macOS / Python noise
+.DS_Store
+__pycache__/
+*.pyc

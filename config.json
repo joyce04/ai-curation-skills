@@ -1,0 +1,245 @@
+{
+  "_comment": "Edit this file to change what the digest watches. Topics drive both arXiv queries and blog-item routing. Keywords are matched against paper titles/abstracts and post titles/summaries -- prefer specific phrases ('LLM inference') over bare words ('inference'), which match unrelated work. Run scripts/fetch.py --validate-feeds after adding feeds.",
+  "lookback_days": 7,
+  "max_items_per_topic": 12,
+  "candidate_pool_per_topic": 25,
+  "topics": [
+
+    {
+      "name": "Document extraction to knowledge graphs",
+      "_comment": "The full pipeline: parse -> extract -> resolve entities -> build graph. If this floods, split the parsing keywords off into their own topic.",
+      "keywords": [
+        "OCR",
+        "document parsing",
+        "document understanding",
+        "layout analysis",
+        "table extraction",
+        "information extraction",
+        "relation extraction",
+        "named entity recognition",
+        "entity resolution",
+        "entity linking",
+        "record linkage",
+        "knowledge graph construction",
+        "ontology learning",
+        "schema matching",
+        "coreference resolution"
+      ],
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.IR",
+        "cs.DB",
+        "cs.CV"
+      ]
+    },
+    {
+      "name": "Agent backend latency",
+      "_comment": "Latency/throughput for agent-shaped traffic, not single-request serving. Bare 'latency' is deliberately excluded -- it matches all of networking.",
+      "keywords": [
+        "inference latency",
+        "tail latency",
+        "time to first token",
+        "TTFT",
+        "prefix caching",
+        "prompt caching",
+        "KV cache",
+        "speculative decoding",
+        "continuous batching",
+        "request scheduling",
+        "model routing",
+        "streaming response",
+        "agent orchestration"
+      ],
+      "arxiv_categories": [
+        "cs.DC",
+        "cs.PF",
+        "cs.AI",
+        "cs.SE"
+      ]
+    },
+    {
+      "name": "Retrieval and context",
+      "keywords": [
+        "retrieval-augmented",
+        "RAG",
+        "text embedding",
+        "reranking",
+        "vector search",
+        "long context",
+        "context window",
+        "dense retrieval"
+      ],
+      "arxiv_categories": [
+        "cs.IR",
+        "cs.CL"
+      ]
+    },
+    {
+      "name": "LLM post-training",
+      "keywords": [
+        "RLHF",
+        "DPO",
+        "preference optimization",
+        "reward model",
+        "instruction tuning",
+        "post-training",
+        "knowledge distillation",
+        "reinforcement learning from human feedback"
+      ],
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.LG"
+      ]
+    },
+    {
+      "name": "Multi-Agents",
+      "keywords": [
+        "LLM agent",
+        "agentic",
+        "multi-agent",
+        "Langgraph"
+      ],
+      "arxiv_categories": [
+        "cs.MA",
+        "cs.AI",
+        "cs.CL",
+        "cs.SE"
+      ]
+    }
+  ],
+  "sources": {
+    "arxiv": {
+      "enabled": true,
+      "max_results_per_topic": 60
+    },
+    "blogs": {
+      "enabled": true,
+      "feeds": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/news/rss.xml"
+        },
+        {
+          "name": "Google DeepMind",
+          "url": "https://deepmind.google/blog/rss.xml"
+        },
+        {
+          "name": "Google Research",
+          "url": "https://research.google/blog/rss/"
+        },
+        {
+          "name": "Hugging Face",
+          "url": "https://huggingface.co/blog/feed.xml"
+        },
+        {
+          "name": "Latent Space",
+          "url": "https://www.latent.space/feed"
+        },
+        {
+          "name": "BAIR (Berkeley)",
+          "url": "https://bair.berkeley.edu/blog/feed.xml"
+        },
+        {
+          "name": "Lil'Log",
+          "url": "https://lilianweng.github.io/index.xml"
+        },
+        {
+          "name": "Simon Willison",
+          "url": "https://simonwillison.net/atom/everything/"
+        },
+        {
+          "name": "Sebastian Raschka",
+          "url": "https://magazine.sebastianraschka.com/feed"
+        },
+        {
+          "name": "Databricks",
+          "url": "https://www.databricks.com/feed"
+        },
+        {
+          "name": "Cloudflare",
+          "url": "https://blog.cloudflare.com/rss/"
+        },
+        {
+          "name": "Netflix Tech",
+          "url": "https://netflixtechblog.com/feed"
+        },
+        {
+          "name": "GitHub Engineering",
+          "url": "https://github.blog/engineering/feed/"
+        },
+        {
+          "name": "Stripe",
+          "url": "https://stripe.com/blog/feed.rss"
+        },
+        {
+          "name": "Slack Engineering",
+          "url": "https://slack.engineering/feed/"
+        },
+        {
+          "name": "Dropbox Tech",
+          "url": "https://dropbox.tech/feed"
+        },
+        {
+          "name": "Jane Street",
+          "url": "https://blog.janestreet.com/feed.xml"
+        },
+        {
+          "name": "Meta Engineering",
+          "url": "https://engineering.fb.com/feed/"
+        },
+        {
+          "name": "Google AI",
+          "url": "https://blog.google/technology/ai/rss/"
+        },
+        {
+          "name": "Discord Engineering",
+          "url": "https://discord.com/blog/rss.xml"
+        },
+        {
+          "name": "Pragmatic Engineer",
+          "url": "https://newsletter.pragmaticengineer.com/feed"
+        },
+        {
+          "name": "Neo4j",
+          "url": "https://neo4j.com/blog/feed/"
+        },
+        {
+          "name": "Explosion (spaCy)",
+          "url": "https://explosion.ai/feed"
+        },
+        {
+          "name": "Weaviate",
+          "url": "https://weaviate.io/blog/rss.xml"
+        },
+        {
+          "name": "NVIDIA Developer",
+          "url": "https://developer.nvidia.com/blog/feed/"
+        },
+        {
+          "name": "Eugene Yan",
+          "url": "https://eugeneyan.com/rss/"
+        }
+      ]
+    },
+    "social": {
+      "enabled": true,
+      "_comment": "No free API for X or Threads. fetch.py does NOT cover this; Claude gathers it with web search per SKILL.md step 3. Lower fidelity than arXiv/RSS -- treat as signal, not source of record.",
+      "sites": [
+        "x.com",
+        "threads.com"
+      ],
+      "accounts_of_interest": [],
+      "max_items_per_topic": 3
+    }
+  },
+  "dedup": {
+    "enabled": true,
+    "state_file": "state/seen.json",
+    "expire_days": 180
+  },
+  "output": {
+    "format": "html_artifact",
+    "group_by": "topic",
+    "dir": "digests"
+  }
+}
