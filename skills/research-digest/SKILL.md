@@ -12,8 +12,15 @@ list the script can produce.
 
 ## Quick start
 
+Every `scripts/...` path in this file is relative to **this skill's own
+directory** — the one containing this `SKILL.md`, `config.json`, and `scripts/`.
+`cd` there first. If the working directory is uncertain, call the script by its
+absolute path instead: it resolves `config.json` and `state/seen.json` from its
+own location rather than from the cwd, so an absolute invocation works from
+anywhere.
+
 ```bash
-cd <skill dir>
+cd /path/to/skills/research-digest                    # the dir holding this SKILL.md
 python3 scripts/fetch.py --out /tmp/digest-raw.json   # stdlib only, no install
 ```
 

@@ -6,7 +6,7 @@ description: Gather the week's AI news — Hacker News discussion, trending mode
 # AI News
 
 A short, forwardable roundup of what happened in AI this week, written for a
-company Slack channel. `scripts/fetch_news.py` gathers; you curate and write.
+team Slack channel. `scripts/fetch_news.py` gathers; you curate and write.
 
 **This is not research-digest.** That skill goes deep on papers for one reader.
 This one is wide and shallow for a room of colleagues with mixed ML background.
@@ -14,8 +14,15 @@ If the user wants depth on a topic, use research-digest instead.
 
 ## Quick start
 
+Every `scripts/...` path in this file is relative to **this skill's own
+directory** — the one containing this `SKILL.md`, `config.json`, and `scripts/`.
+`cd` there first. If the working directory is uncertain, call the script by its
+absolute path instead: it resolves `config.json` and `state/seen.json` from its
+own location rather than from the cwd, so an absolute invocation works from
+anywhere.
+
 ```bash
-cd <skill dir>
+cd /path/to/skills/ai-news                           # the dir holding this SKILL.md
 python3 scripts/fetch_news.py --out /tmp/news.json   # stdlib only, ~30s
 ```
 
