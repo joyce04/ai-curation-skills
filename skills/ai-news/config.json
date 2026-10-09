@@ -1,0 +1,94 @@
+{
+  "_comment": "Sources for the ai-news skill. Lighter and newsier than research-digest: what shipped, what people are arguing about, what is worth forwarding to a work Slack channel. Run scripts/fetch_news.py --validate after editing feeds.",
+  "lookback_days": 7,
+  "max_items": 14,
+  "audience": {
+    "channel": "a team Slack channel",
+    "_comment": "Curation target. Assume a mixed engineering audience who are interested but not all ML specialists. Interesting and current beats comprehensive."
+  },
+  "sources": {
+    "hackernews": {
+      "enabled": true,
+      "min_points": 100,
+      "max_items": 25,
+      "queries": [
+        "AI",
+        "LLM",
+        "agent",
+        "model",
+        "OpenAI",
+        "Anthropic",
+        "inference"
+      ],
+      "_comment": "Algolia API, no key. min_points is the noise filter -- below ~80 is mostly undiscussed submissions."
+    },
+    "huggingface_models": {
+      "enabled": true,
+      "max_items": 12,
+      "min_likes": 40,
+      "_comment": "Trending models. Filtered to models CREATED inside the window, otherwise long-running favorites dominate every run."
+    },
+    "huggingface_papers": {
+      "enabled": true,
+      "max_items": 15,
+      "min_upvotes": 20,
+      "_comment": "HF daily papers -- community-upvoted, so it surfaces buzz rather than volume. Complements research-digest's exhaustive arXiv sweep."
+    },
+    "github_releases": {
+      "enabled": true,
+      "max_per_repo": 2,
+      "repos": [
+        "vllm-project/vllm",
+        "ggml-org/llama.cpp",
+        "ollama/ollama",
+        "huggingface/transformers",
+        "langchain-ai/langgraph",
+        "modelcontextprotocol/servers"
+      ],
+      "_comment": "Atom feed per repo. Concrete 'what shipped' signal. Add repos you actually depend on."
+    },
+    "newsletters": {
+      "enabled": true,
+      "feeds": [
+        {
+          "name": "TLDR AI",
+          "url": "https://tldr.tech/api/rss/ai"
+        },
+        {
+          "name": "Latent Space",
+          "url": "https://www.latent.space/feed"
+        },
+        {
+          "name": "Import AI",
+          "url": "https://importai.substack.com/feed"
+        },
+        {
+          "name": "Interconnects",
+          "url": "https://www.interconnects.ai/feed"
+        }
+      ]
+    },
+    "search_only": {
+      "enabled": true,
+      "max_items": 4,
+      "sites": [
+        "x.com",
+        "threads.com"
+      ],
+      "publications": [
+        "DeepLearning.AI The Batch"
+      ],
+      "_comment": "Sources with no usable API or feed. fetch_news.py does NOT cover these; Claude gathers them with web search per SKILL.md. X and Threads have no free API; The Batch is JS-rendered with no RSS. All of it is lower-fidelity -- label it as such and never let it be the only support for a claim."
+    }
+  },
+  "dedup": {
+    "enabled": true,
+    "state_file": "state/seen.json",
+    "expire_days": 90
+  },
+  "output": {
+    "format": "markdown",
+    "dir": "news",
+    "slack_ready": true
+  }
+}
