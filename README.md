@@ -31,7 +31,7 @@ contains `.claude-plugin/plugin.json` is adopted as a plugin, and every
 `skills/*/SKILL.md` inside it is discovered.
 
 ```bash
-git clone git@github.com:joyce04/claude-skills.git ~/src/joyce-skills
+git clone git@github.com:joyce04/ai-curation-skills.git ~/src/joyce-skills
 ln -s ~/src/joyce-skills ~/.claude/skills/joyce-skills
 ```
 
@@ -48,7 +48,7 @@ directory name in `~/.claude/skills/` becomes the local half of the plugin id.
 ### For everyone else: marketplace
 
 ```
-/plugin marketplace add joyce04/claude-skills
+/plugin marketplace add joyce04/ai-curation-skills
 /plugin install joyce-skills@joyce04-skills
 ```
 
@@ -239,7 +239,7 @@ before your first commit.
 ```
 .claude-plugin/
   plugin.json             makes the repo a plugin; skills/ is auto-discovered
-  marketplace.json        lets others `marketplace add joyce04/claude-skills`
+  marketplace.json        lets others `marketplace add joyce04/ai-curation-skills`
 skills/
   research-digest/
     SKILL.md              workflow, selection criteria, rendering instructions
