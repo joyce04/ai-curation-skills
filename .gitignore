@@ -1,9 +1,17 @@
 # Personal run state -- ids of items already shown. Machine-local, and merging
 # two people's histories is meaningless.
-state/seen.json
+#
+# NOTE: every pattern here must match at ANY depth, because the skills live in
+# skills/<name>/. A pattern containing a mid-pattern slash (e.g. "state/seen.json")
+# is anchored to this file's own directory and would silently stop matching once
+# the files moved down into skills/. Use a bare name, a trailing-slash-only dir,
+# or an explicit leading "**/".
+seen.json
+**/state/*.json
 
-# Generated digests. Output, not source.
+# Generated output. Not source.
 digests/
+news/
 
 # macOS / Python noise
 .DS_Store
