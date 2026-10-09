@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "joyce04-skills",
+  "description": "Personal Claude Code skills: a deep research digest and a lighter weekly AI news roundup.",
+  "owner": {
+    "name": "joyce04",
+    "url": "https://github.com/joyce04"
+  },
+  "plugins": [
+    {
+      "name": "joyce-skills",
+      "description": "research-digest (arXiv + blog digest, HTML output) and ai-news (weekly Slack-ready AI news roundup).",
+      "source": "./",
+      "category": "productivity",
+      "keywords": [
+        "research",
+        "arxiv",
+        "news",
+        "digest",
+        "rss"
+      ]
+    }
+  ]
+}

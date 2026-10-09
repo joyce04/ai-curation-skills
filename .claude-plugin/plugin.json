@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "joyce-skills",
+  "version": "0.1.0",
+  "description": "Two reading-and-summarizing skills for Claude Code: research-digest gathers arXiv papers and engineering blog posts on topics you track and renders an HTML digest; ai-news assembles a short, Slack-ready weekly AI news roundup. Both are stdlib-only Python plus judgment.",
+  "author": {
+    "name": "joyce04",
+    "url": "https://github.com/joyce04"
+  },
+  "homepage": "https://github.com/joyce04/research-digest-skill",
+  "repository": "https://github.com/joyce04/research-digest-skill",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "arxiv",
+    "news",
+    "digest",
+    "rss",
+    "summarization"
+  ]
+}
